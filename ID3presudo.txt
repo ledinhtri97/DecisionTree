@@ -1,0 +1,21 @@
+ID3(D,Feature_Attributes,Target_Attributes)
+    Create a root node r
+    Set r to the mode target feature value in D
+    If all target feature values are the same:
+        return r
+    Else:
+        pass
+    If Feature_Attributes is empty:
+        return r
+    Else:
+        Att = Attribute from Feature_Attributes with the largest information gain value
+        r = Att
+        For values in Att:
+            Add a new node below r where node_values = (Att == values)
+            Sub_D_values = (Att == values)
+            If Sub_D_values == empty:
+                Add a leaf node l where l equals the mode target value in D
+            Else:
+                add Sub_Tree with ID3(Sub_D_values,Feature_Attributes = Feature_Attributes without Att, Target_Attributes)
+
+                
